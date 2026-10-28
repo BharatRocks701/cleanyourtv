@@ -1,0 +1,36 @@
+name: Build OnePlus D00 Launcher
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - uses: android-actions/setup-android@v3
+
+      - name: Install Android SDK
+        run: sdkmanager "platforms;android-34" "build-tools;34.0.0"
+
+      - name: Build Launcher
+        working-directory: launcher
+        run: |
+          chmod +x gradlew
+          ./gradlew --no-daemon assembleRelease
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: oneplus-d00-launcher
+          path: launcher/app/build/outputs/apk/release/app-release.apk
+          if-no-files-found: error
