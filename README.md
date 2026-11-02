@@ -177,6 +177,7 @@ tools/theme.sh themes/aurora                                 # push a theme; --r
 
 | Tool | What it does |
 |---|---|
+| [`tools/smart_clean.py`](tools/smart_clean.py) | **Safe Smart Clean**: read-only TV storage/RAM report by default; opt-in Android cache trim with before/after measurement. [OnePlus TV 32 Y1S Edge guide](docs/oneplus-y1s-edge-smart-clean.md). |
 | [`tools/tv.py`](tools/tv.py) | Pure-Python ADB client: shell, batch, push, pull, reboot, and screenshots, optionally pressing remote keys first. Works where the stock `adb` binary is blocked. Optional [paired Google ADB backend](tools/native-adb.md) for encrypted Wireless debugging. |
 | [`tools/b64push.py`](tools/b64push.py) | Uploads large files such as APKs in base64 chunks and verifies the checksum. |
 | [`tools/relay.py`](tools/relay.py) | Forwards a local port to the TV's ADB port, for assistants whose sandbox can't reach your network. Listens on this computer only. [Guide](tools/relay.md). |
